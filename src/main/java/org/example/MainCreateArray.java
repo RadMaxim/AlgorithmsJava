@@ -8,11 +8,11 @@ import java.util.Random;
 
 public class MainCreateArray {
     static Random random = new Random();
-    static int []arr1 = new int[(int) Math.pow(10, 7)];
-    static int []arr2 = new int[(int) Math.pow(10, 7)];
-    static int []arr3 = new int[(int) Math.pow(10, 7)];
+    static int []arr1 = new int[(int) Math.pow(10, 8)];
+    static int []arr2 = new int[(int) Math.pow(10, 8)];
+    static int []arr3 = new int[(int) Math.pow(10, 8)];
     static {
-        for (int i = 0; i < Math.pow(10, 7); i++) {
+        for (int i = 0; i < Math.pow(10, 8); i++) {
             int value = random.nextInt(0, 100000);
             arr1[i] = value;
             arr2[i] = value;
@@ -49,6 +49,8 @@ public class MainCreateArray {
         long memoryBeforeRadixSort = (runtime.totalMemory() - runtime.freeMemory())/(1024*1024);
 
         RadixSort.radixSort(arr3);
+        long t5 = System.currentTimeMillis();
+        System.out.println("radixSort время: " + (t5 - t4) + " миллисекунд");
         long memoryAfterRadixSort = (runtime.totalMemory() - runtime.freeMemory())/(1024*1024);
 
         long memoryUsedRadixSort = memoryAfterRadixSort - memoryBeforeRadixSort;
